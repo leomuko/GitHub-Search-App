@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/screen_bg_color">
 
     <EditText
         android:id="@+id/searchEt"
@@ -30,6 +31,7 @@
         app:layout_constraintTop_toTopOf="@+id/searchEt" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/search_recycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -39,5 +41,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchEt" />
+        app:layout_constraintTop_toBottomOf="@+id/searchEt"
+        tools:listitem="@layout/item_search"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,11 +3,17 @@ package com.example.scaliointerview
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.scaliointerview.adapter.SearchAdapter
+import com.example.scaliointerview.model.SearchModel
 import com.example.scaliointerview.utilities.InternetDetection
 import kotlinx.android.synthetic.main.activity_main.*
+import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,6 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         searchButton.setOnClickListener {
             doSearch()
+            hideKeyboard(window.decorView.rootView)
         }
     }
 
@@ -49,7 +56,30 @@ class MainActivity : AppCompatActivity() {
         viewModel.searchResponse.observe(this, Observer { it ->
             if (it.isSuccessful) {
                 Toast.makeText(this@MainActivity, "Request Successfully", Toast.LENGTH_SHORT).show()
-                Log.d(TAG, "doSearch: ${it.body()}")
+               // Log.d(TAG, "doSearch: ${it.body()}")
+                val searchModelsList = ArrayList<SearchModel>()
+                try {
+                    val json = JSONObject(it.body().toString())
+                    val itemsArray = json.getJSONArray("items")
+                    for (i in 0 until itemsArray.length()){
+                        val item = itemsArray.getJSONObject(i)
+                        val id = item.getInt("id")
+                        val profileUrl = item.getString("avatar_url")
+                        val login = item.getString("login")
+                        val type = item.getString("type")
+
+                        val searchModel : SearchModel = SearchModel(id, profileUrl, login, type)
+                        searchModelsList.add(searchModel)
+                    }
+
+                    if (searchModelsList.size == 0){
+                        Toast.makeText(this@MainActivity, "No Results Were Found", Toast.LENGTH_SHORT).show()
+                    }else{
+                        initialiseViewModel(searchModelsList)
+                    }
+                }catch (e: Exception) {
+                    Log.d("Response", "Json Error :" + e.message)
+                }
             } else {
                 Toast.makeText(
                     this@MainActivity,
@@ -64,4 +94,15 @@ class MainActivity : AppCompatActivity() {
 
     }
     }
+
+    private fun initialiseViewModel(searchModelsList: java.util.ArrayList<SearchModel>) {
+        val adapter : SearchAdapter = SearchAdapter(this, searchModelsList)
+        val manager = LinearLayoutManager(this)
+        search_recycler.layoutManager = manager
+        search_recycler.adapter = adapter
+    }
+
+    fun hideKeyboard(view: View) =
+        (applicationContext.getSystemService(AppCompatActivity.INPUT_METHOD_SERVICE) as? InputMethodManager)!!
+            .hideSoftInputFromWindow(view.windowToken, 0)
 }
