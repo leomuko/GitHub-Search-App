@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ScalioInterview</string>
+    <string name="search">Search</string>
+    <string name="enter_search_value">Enter Search Value</string>
+</resources>
