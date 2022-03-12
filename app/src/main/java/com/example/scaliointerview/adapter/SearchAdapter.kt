@@ -35,7 +35,7 @@ class SearchAdapter(
         holder.loginTv.text = currentItem.login
         holder.typeTv.text = currentItem.type
         Glide.with(mContext)
-            .load(currentItem.profileUrl)
+            .load(currentItem.avatar_url)
             .placeholder(R.drawable.ic_baseline_account_circle)
             .into(holder.profileImageView)
     }

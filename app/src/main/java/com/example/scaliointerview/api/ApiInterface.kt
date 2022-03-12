@@ -1,5 +1,6 @@
 package com.example.scaliointerview.api
 
+import com.example.scaliointerview.model.SearchResponse
 import com.google.gson.JsonElement
 import retrofit2.Response
 import retrofit2.http.GET
@@ -11,6 +12,8 @@ interface ApiInterface {
     @GET("/search/users")
     @Headers("Accept: application/json")
     suspend fun searchApi(
-        @Query("q") searchString: String
-    ) : Response<JsonElement>
+        @Query("q") searchString: String,
+        @Query("page") page: Int,
+        @Query("per_page") perPage: Int
+    ): SearchResponse
 }
