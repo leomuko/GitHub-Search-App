@@ -14,6 +14,8 @@ interface ApiInterface {
     suspend fun searchApi(
         @Query("q") searchString: String,
         @Query("page") page: Int,
-        @Query("per_page") perPage: Int
+        @Query("per_page") perPage: Int,
+        @Query("sort") sortField : String = "login",
+        @Query("order") orderBy : String = "asc"
     ): SearchResponse
 }

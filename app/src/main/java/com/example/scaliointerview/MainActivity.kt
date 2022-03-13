@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]
 
         searchButton.setOnClickListener {
+            progressBar.visibility = View.VISIBLE
             doSearch()
             hideKeyboard(window.decorView.rootView)
         }
@@ -41,11 +42,13 @@ class MainActivity : AppCompatActivity() {
                 "Please Check Your Internet Connection",
                 Toast.LENGTH_SHORT
             ).show()
+            progressBar.visibility = View.GONE
         }else{
             val searchString = searchEt.text.toString()
 
             if (searchString.isNullOrEmpty()){
                 Toast.makeText(this, "Please Enter a string to search", Toast.LENGTH_SHORT).show()
+                progressBar.visibility = View.GONE
                 return
             }
 
@@ -57,6 +60,7 @@ class MainActivity : AppCompatActivity() {
 
                 val manager = LinearLayoutManager(this)
                 search_recycler.layoutManager = manager
+                progressBar.visibility = View.GONE
 
             })
         }
