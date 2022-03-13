@@ -43,6 +43,9 @@ class ApiPagingSource(
         } catch (exception: HttpException) {
             Log.d("Main", "HttpException: ${exception.toString()}")
             LoadResult.Error(exception)
+        }catch (exception : Exception){
+            Log.d("Main", "Exception: ${exception.toString()}")
+            LoadResult.Error(exception)
         }
     }
 

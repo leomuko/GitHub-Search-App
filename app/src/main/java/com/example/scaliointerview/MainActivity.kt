@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.scaliointerview.adapter.PagingSearchAdapter
+import com.example.scaliointerview.adapter.SearchLoadStateAdapter
 import com.example.scaliointerview.utilities.InternetDetection
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -52,17 +53,25 @@ class MainActivity : AppCompatActivity() {
                 return
             }
 
+            try{
             viewModel.doApiSearch(searchString)
             viewModel.searchResponse.observe(this, Observer {
                 val adapter: PagingSearchAdapter = PagingSearchAdapter(this@MainActivity)
                  adapter.submitData(lifecycle, it)
-                search_recycler.adapter = adapter
+                search_recycler.adapter = adapter.withLoadStateHeaderAndFooter(
+                    header = SearchLoadStateAdapter{ adapter.retry()},
+                    footer = SearchLoadStateAdapter { adapter.retry() }
+                )
 
                 val manager = LinearLayoutManager(this)
                 search_recycler.layoutManager = manager
+                search_recycler.hasFixedSize()
                 progressBar.visibility = View.GONE
 
             })
+            }catch (exception : Exception){
+                Toast.makeText(this, exception.message, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
