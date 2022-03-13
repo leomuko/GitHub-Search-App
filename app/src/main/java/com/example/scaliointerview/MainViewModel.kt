@@ -28,4 +28,5 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
         searchResponse = items
         Log.d("Main", "doApiSearch: ${searchResponse.value}")
     }
+
 }
