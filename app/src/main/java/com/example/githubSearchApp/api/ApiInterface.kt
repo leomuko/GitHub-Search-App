@@ -1,8 +1,6 @@
-package com.example.scaliointerview.api
+package com.example.githubSearchApp.api
 
-import com.example.scaliointerview.model.SearchResponse
-import com.google.gson.JsonElement
-import retrofit2.Response
+import com.example.githubSearchApp.model.SearchResponse
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query

@@ -1,4 +1,4 @@
-package com.example.scaliointerview.utilities
+package com.example.githubSearchApp.utilities
 
 class Constants {
     companion object{

@@ -1,4 +1,4 @@
-package com.example.scaliointerview
+package com.example.githubSearchApp
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

@@ -1,16 +1,11 @@
-package com.example.scaliointerview
+package com.example.githubSearchApp
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
-import com.example.scaliointerview.model.SearchModel
-import com.example.scaliointerview.model.SearchResponse
-import com.google.gson.JsonElement
-import kotlinx.coroutines.launch
-import retrofit2.Response
+import com.example.githubSearchApp.model.SearchModel
 
 class MainViewModel(private val repository: Repository) : ViewModel() {
     //val searchResponse1 : MutableLiveData<SearchResponse> = MutableLiveData()

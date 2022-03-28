@@ -1,4 +1,4 @@
-package com.example.scaliointerview.utilities
+package com.example.githubSearchApp.utilities
 
 import android.content.Context
 import android.net.ConnectivityManager

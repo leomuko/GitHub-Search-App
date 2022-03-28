@@ -1,4 +1,4 @@
-package com.example.scaliointerview.model
+package com.example.githubSearchApp.model
 
 data class SearchModel(
     val login : String,

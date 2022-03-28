@@ -1,6 +1,6 @@
-package com.example.scaliointerview.api
+package com.example.githubSearchApp.api
 
-import com.example.scaliointerview.utilities.Constants.Companion.BASE_URL
+import com.example.githubSearchApp.utilities.Constants.Companion.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

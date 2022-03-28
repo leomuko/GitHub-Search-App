@@ -1,4 +1,4 @@
-package com.example.scaliointerview
+package com.example.githubSearchApp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -1,4 +1,4 @@
-package com.example.scaliointerview
+package com.example.githubSearchApp
 
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData

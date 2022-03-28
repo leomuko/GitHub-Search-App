@@ -1,14 +1,11 @@
-package com.example.scaliointerview.api
+package com.example.githubSearchApp.api
 
 import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.bumptech.glide.load.HttpException
-import com.example.scaliointerview.model.SearchModel
-import com.example.scaliointerview.model.SearchResponse
-import org.json.JSONObject
+import com.example.githubSearchApp.model.SearchModel
 import java.io.IOException
-import kotlin.math.log
 
 private const val UNSPLASH_STARTING_PAGE_INDEX = 1
 

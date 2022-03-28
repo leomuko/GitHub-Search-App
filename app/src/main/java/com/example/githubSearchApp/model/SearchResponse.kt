@@ -1,4 +1,4 @@
-package com.example.scaliointerview.model
+package com.example.githubSearchApp.model
 
 data class SearchResponse(
     val total_count : Int,

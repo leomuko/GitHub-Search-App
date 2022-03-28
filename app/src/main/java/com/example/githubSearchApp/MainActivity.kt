@@ -1,4 +1,4 @@
-package com.example.scaliointerview
+package com.example.githubSearchApp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,9 +8,9 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.scaliointerview.adapter.PagingSearchAdapter
-import com.example.scaliointerview.adapter.SearchLoadStateAdapter
-import com.example.scaliointerview.utilities.InternetDetection
+import com.example.githubSearchApp.adapter.PagingSearchAdapter
+import com.example.githubSearchApp.adapter.SearchLoadStateAdapter
+import com.example.githubSearchApp.utilities.InternetDetection
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

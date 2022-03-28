@@ -1,17 +1,12 @@
-package com.example.scaliointerview
+package com.example.githubSearchApp
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.liveData
-import com.example.scaliointerview.api.ApiPagingSource
-import com.example.scaliointerview.api.RetrofitInstance
-import com.example.scaliointerview.model.SearchModel
-import com.example.scaliointerview.model.SearchResponse
-import com.google.gson.JsonElement
-import retrofit2.Response
+import com.example.githubSearchApp.api.ApiPagingSource
+import com.example.githubSearchApp.model.SearchModel
 
 class Repository {
 

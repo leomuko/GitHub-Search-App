@@ -1,4 +1,4 @@
-package com.example.scaliointerview.adapter
+package com.example.githubSearchApp.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.scaliointerview.databinding.ItemLoadingStateBinding
+import com.example.githubSearchApp.databinding.ItemLoadingStateBinding
 
 
 class SearchLoadStateAdapter(
